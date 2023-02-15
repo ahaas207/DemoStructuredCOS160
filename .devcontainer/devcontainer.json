@@ -10,7 +10,9 @@
 			"bianxianyang.htmlplay",
 			"MS-vsliveshare.vsliveshare",
 			"CS50.ddb50",
-			"CS50.markdown50"
+			"CS50.markdown50",
+			"vscjava.vscode-java-pack",
+			"vscjava.vscode-java-debug"
 		]
 	}
 }
