@@ -3,5 +3,15 @@
   "features": {
       "ghcr.io/devcontainers/features/java:1": {}
       
-  }
+},
+"customizations": {
+	"vscode": {
+		"extensions": [
+			"bianxianyang.htmlplay",
+			"MS-vsliveshare.vsliveshare",
+			"CS50.ddb50",
+			"CS50.markdown50"
+		]
+	}
+}
 }
