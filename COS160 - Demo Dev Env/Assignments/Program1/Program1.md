@@ -1,5 +1,3 @@
- COS 160 Program #1 - Character Face  
-
 COS 160 : Program 1 - Character Face  
 
 =======================================
