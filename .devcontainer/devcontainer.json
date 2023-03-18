@@ -1,20 +1,23 @@
 {
+   "forwardPorts": [
+        5900, // VNC server
+        6081 // VNC client
+    ],
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
-      "ghcr.io/devcontainers/features/java:1": {}
+      "ghcr.io/devcontainers/features/java:1": {},
+      "ghcr.io/devcontainers/features/desktop-lite:1": {}
       
 },
 "customizations": {
 	"vscode": {
 		"extensions": [
-			"bianxianyang.htmlplay",
 			"MS-vsliveshare.vsliveshare",
 			"CS50.ddb50",
 			"CS50.markdown50",
 			"vscjava.vscode-java-pack",
 			"vscjava.vscode-java-debug",
-			"eamodio.gitlens",
-			"bianxianyang.htmlplay"
+			"eamodio.gitlens"
 		]
 	}
 }
