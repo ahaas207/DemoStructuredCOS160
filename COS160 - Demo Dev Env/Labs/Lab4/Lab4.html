@@ -1,469 +1,158 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!-- saved from url=(0050)file:///G:/My%20Drive/www/cos160/labsF18/Lab4.html -->
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Bob Boothe, Fall 2009 -->
-    <title>COS 170 : Lab 4 - if statements</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <link type="text/css" rel="stylesheet"
-      href="./Lab4_files/pageframe.css?_&amp;d2lSessionVal=XzUFghSZLNtbVzFKlTqqskDfu">
-    <link type="text/css" rel="stylesheet"
-      href="./Lab4_files/lab_style.css?_&amp;d2lSessionVal=XzUFghSZLNtbVzFKlTqqskDfu">
-  <script>function lti_launch( vars, target ) {
-						var query = '';
-						var new_tab = false;
-
-						for(var key in vars) {
-							if(query.length == 0) {
-								query += '?' + key + '=' + encodeURIComponent(vars[key]);
-							}
-							else {
-								query += '&' + key + '=' + encodeURIComponent(vars[key]);
-							}
-						}
-
-						var url = '/d2l/customization/pearsonlti/6606/Launch' + query;(target == '_blank') ? window.open( url, '_blank' ) : location.replace( url );}</script><script src="https://s.brightspace.com/lib/bsi/20.23.2-173/unbundled/mathjax.js?v=20.23.2.14956" type="module"></script><script>document.addEventListener('DOMContentLoaded', function() {
-					if (document.querySelector('math') || /\$\$|\\\(|\\\[|\\begin{|\\ref{|\\eqref{/.test(document.body.innerHTML)) {
-						document.querySelectorAll('mspace[linebreak="newline"]').forEach(elm => {
-							elm.setAttribute('style', 'display: block; height: 0.5rem;');
-						});
-
-						window.D2L.MathJax.loadMathJax({
-							'outputScale': 1.3,
-							'renderLatex': false
-						});
-					}
-				});</script><script src="https://s.brightspace.com/lib/bsi/20.23.2-173/unbundled/prism.js?v=20.23.2.14956" type="module"></script><script>document.addEventListener('DOMContentLoaded', function() {
-					document.querySelectorAll('.d2l-code').forEach(code => {
-						window.D2L.Prism.formatCodeElement(code);
-					});
-				});</script><script>window.addEventListener('message', function(event) { 
-					if( !event.data ) {
-						return;
-					}
-
-					var params;
-					try {
-						params = JSON.parse( event.data );
-					}
-					catch {
-						return;
-					}
-					if( !params.subject || params.subject !== 'lti.frameResize' ) {
-						return;
-					}
-
-					const MAX_FRAME_HEIGHT = 10000
-					if( !params.height || params.height < 1 || params.height > MAX_FRAME_HEIGHT ) {
-						console.warn( 'Invalid height value received, aborting' );
-						return;
-					}
-					var el = document.getElementsByTagName( 'iframe' );
-					for ( var i=0; i < el.length; i++ ) {
-						if( el[i].contentWindow === event.source ) {
-							el[i].style.height = params.height + 'px';
-							el[i].style.width = '100%';
-							console.info( 'Setting iFrame height to ' + params.height );
-							console.info( 'Setting iFrame width to 100%' );
-						}
-					}
-				});</script></head>
-  <body>
-    <div id="header_container">
-      <div id="header">
-        <h1> COS 170 : Lab 4 - if statements and conditional expressions<br>
-        </h1>
-      </div>
-    </div>
-    <div id="content">
-      <div id="center">
-        <div class="lab">
-          <div class="headingB">Objectives</div>
-          <p> In this lab you will experiment with conditional
-            statements (if - else) and boolean expressions.<br>
-          </p>
-          <div class="headingB">Preparation<br>
-          </div>
-          <br>
-          <ul>
-            <li>Set up a new eclipse project for each lab <a
-href="http://www.cs.usm.maine.edu/%7Emacleod/courses/cos160/Fall2020Labs/StartingANewLabProject.html">(detailed
-
-
-
-
-
-
-
-
-
+  COS 170 : Lab 4 - if statements     function lti\_launch( vars, target ) { var query = ''; var new\_tab = false; for(var key in vars) { if(query.length == 0) { query += '?' + key + '=' + encodeURIComponent(vars\[key\]); } else { query += '&' + key + '=' + encodeURIComponent(vars\[key\]); } } var url = '/d2l/customization/pearsonlti/6606/Launch' + query;(target == '\_blank') ? window.open( url, '\_blank' ) : location.replace( url );}document.addEventListener('DOMContentLoaded', function() { if (document.querySelector('math') || /\\$\\$|\\\\\\(|\\\\\\\[|\\\\begin{|\\\\ref{|\\\\eqref{/.test(document.body.innerHTML)) { document.querySelectorAll('mspace\[linebreak="newline"\]').forEach(elm => { elm.setAttribute('style', 'display: block; height: 0.5rem;'); }); window.D2L.MathJax.loadMathJax({ 'outputScale': 1.3, 'renderLatex': false }); } });document.addEventListener('DOMContentLoaded', function() { document.querySelectorAll('.d2l-code').forEach(code => { window.D2L.Prism.formatCodeElement(code); }); });window.addEventListener('message', function(event) { if( !event.data ) { return; } var params; try { params = JSON.parse( event.data ); } catch { return; } if( !params.subject || params.subject !== 'lti.frameResize' ) { return; } const MAX\_FRAME\_HEIGHT = 10000 if( !params.height || params.height < 1 || params.height > MAX\_FRAME\_HEIGHT ) { console.warn( 'Invalid height value received, aborting' ); return; } var el = document.getElementsByTagName( 'iframe' ); for ( var i=0; i < el.length; i++ ) { if( el\[i\].contentWindow === event.source ) { el\[i\].style.height = params.height + 'px'; el\[i\].style.width = '100%'; console.info( 'Setting iFrame height to ' + params.height ); console.info( 'Setting iFrame width to 100%' ); } } });
 
-                instructions)</a> <br>
-            </li>
-          </ul>
-          <ul>
-            <ul>
-            </ul>
-          </ul>
-          <ul>
-            <li>Copy the files <a
-                href="http://www.cs.usm.maine.edu/%7Eboothe/cos160/DrawingPanel.java">DrawingPanel.java</a>,
-              <a href="Lab4_files/DrawLoop.java?_&amp;d2lSessionVal=XzUFghSZLNtbVzFKlTqqskDfu">DrawLoop.java</a> and <a
-                href="Lab4_files/IfGrid.java?_&amp;d2lSessionVal=XzUFghSZLNtbVzFKlTqqskDfu">IfGrid.java</a>&nbsp; into
-              your lab4 project folder. <span style="color: rgb(51, 51,
-                51); font-family: Verdana, Arial, Helvetica, sans-serif;
-                font-size: 13px; font-style: normal;
-                font-variant-ligatures: normal; font-variant-caps:
-                normal; font-weight: 400; letter-spacing: normal;
-                orphans: 2; text-align: left; text-indent: 0px;
-                text-transform: none; white-space: normal; widows: 2;
-                word-spacing: 0px; -webkit-text-stroke-width: 0px;
-                background-color: rgb(255, 255, 255);
-                text-decoration-style: initial; text-decoration-color:
-                initial; display: inline !important; float: none;">(One
-                simple way to do this is to save the links to desktop,
-                and then drag the desktop icons into the Eclipse
-                project).</span> </li>
-            <ul>
-            </ul>
-          </ul>
-          <br>
-          <div class="headingB">Exercise 1: (3 points)<br>
-          </div>
-          <p> Run the DrawLoop program to make sure it works. <br>
-          </p>
-          <p>The DrawLoop code requires some explanation of a new
-            construct, the <b>while loop</b>, which is being used to
-            help make this lab more interesting. We will be learning
-            about loops in class soon. Loops repeatedly execute a block
-            of code, known as the body of the loop, which is highlighted
-            in bold below:<br>
-          </p>
-          <div class="codenote">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+COS 170 : Lab 4 - if statements and conditional expressions  
 
+==============================================================
 
+Objectives
 
+In this lab you will experiment with conditional statements (if - else) and boolean expressions.  
 
-            int i = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font
-              color="#33cc00">// start at i = 0</font><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while (i &lt; 8)
-            <b>{&nbsp;&nbsp;&nbsp; <font color="#33cc00">// repeat for
-                i = 0,1,2...7</font></b><b><br>
-            </b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Preparation  
 
+  
 
+*   Set up a new eclipse project for each lab [(detailed instructions)](http://www.cs.usm.maine.edu/%7Emacleod/courses/cos160/Fall2020Labs/StartingANewLabProject.html)  
+    
 
+*   Copy the files [DrawingPanel.java](http://www.cs.usm.maine.edu/%7Eboothe/cos160/DrawingPanel.java), [DrawLoop.java](Lab4_files/DrawLoop.java?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R) and [IfGrid.java](Lab4_files/IfGrid.java?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  into your lab4 project folder. (One simple way to do this is to save the links to desktop, and then drag the desktop icons into the Eclipse project).
 
-              int cornerX = i*50;&nbsp; <font color="#33cc00">//
-                calculate upper left corner</font></b><b><br>
-            </b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-
-
-              int cornerY = i*25;</b><b><br>
-            </b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-
-
-              g.setColor(Color.WHITE);</b><b><br>
-            </b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-
-
-              g.fillOval(cornerX + 5, cornerY + 5, sizeX-10, sizeY-10);</b><b><br>
-            </b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-
-
-              g.setColor(Color.BLACK);</b><b><br>
-            </b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-
-
-              g.drawRect(cornerX, cornerY, sizeX, sizeY);</b><b><br>
-            </b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-
-
-              i++; <font color="#33cc00">// increment i for next
-                iteration</font></b><b><br>
-            </b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</b><br>
-          </div>
-          <br>
-          <p>This loop will repeat 8 times. The value of the variable i
-            is 0 the first time, 1 the second time, and so on up to a
-            value of 7. The effect of this code is to draw 8 ovals and
-            eight rectangles. In this lab you will not need to change
-            the behavior of the loop.<br>
-          </p>
-          <p>You are going to be making a series of small changes.&nbsp;
-            When you are done it should look like this:<br>
-            &nbsp;<br>
-            <img style="width: 406px; height: 250px;" alt=""
-              src="Lab4_files/DrawLoop2Soln.png?_&amp;d2lSessionVal=XzUFghSZLNtbVzFKlTqqskDfu" width="406"
-              height="250"></p>
-          <p>Below are the changes that you need to make. Make each
-            change one at a time and test it and make sure you
-            understand it before moving on.<br>
-          </p>
-          <ul>
-            <li>Change the background color to a new color of your
-              choice.&nbsp; I used the Red Green Blue values shown
-              below.&nbsp; Experiment and create an interesting color.
-              Note that the additive color model of emitted light (RGB)
-              may not match your color mixing intuition (red plus green
-              does not make brown.)<br>
-            </li>
-          </ul>
-          &nbsp;<span style="color: rgb(255, 0, 0);"></span><br>
-          <div class="codenote">panel.setBackground(new Color(200, 250,
-            150));<br>
-          </div>
-          <br>
-          <ul>
-            <li>Change the color of the ovals from all white to
-              alternating between two colors. Specifically, replace the
-              statement to set the color to white with:</li>
-          </ul>
-          <br>
-          <div class="codenote">if (i%2 ==
-            0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-
-
-
-
-            <span style="color: rgb(255, 0, 0);">&lt;---- make sure
-              there are 2 equal signs</span><br>
-            &nbsp;&nbsp;&nbsp; g.setColor(Color.orange);<br>
-            else <br>
-            &nbsp;&nbsp;&nbsp; g.setColor(Color.green);<br>
-          </div>
-          <br>
-          <ul>
-          </ul>
-          <blockquote>Recall that the loop changes the value of <font
-              face="Courier New, Courier, monospace"><b>i</b></font>
-            every iteration. The expression <span style="font-weight:
-              bold; font-family: monospace;">i%2 == 0 </span>uses the
-            modulus operator <span style="font-weight: bold;
-              font-family: monospace;">%</span> (a.k.a. remainder) to
-            test if a value is even or odd.&nbsp;&nbsp; In this
-            expression if the value of <span style="font-weight: bold;
-              font-family: monospace;">i</span> is even, then the
-            remainder when divided by two will be 0, but if <span
-              style="font-weight: bold;"><span style="font-family:
-                monospace;">i</span> </span>contains an odd value then
-            the remainder will be 1.&nbsp; This is used to make the if
-            statement alternate each iteration between the true and
-            false cases. (Remember this even/odd test. It is very
-            useful!) <br>
-          </blockquote>
-          <ul>
-          </ul>
-          <p>Copy and paste a screen capture of the final drawing panel
-            into your solutions document.&nbsp; In Windows this can be
-            done by:<br>
-          </p>
-          <ul>
-            <li>Selecting the window you want to capture.</li>
-            <li>Hit <span style="font-weight: bold;">Alt-PrintScreen </span>to
-
-
-
-
-
-
-              capture an image of your window to the clipboard.</li>
-            <li>Switch into your editor and paste it with <span
-                style="font-weight: bold;">Ctrl-V</span>.</li>
-          </ul>
-          <p>On the Mac : <br>
-          </p>
-          <ul>
-            <li>Command-Shift-4 <br>
-            </li>
-            <li>Click on one corner and drag mouse to diagonal corner <br>
-            </li>
-            <li>will find the screen snapshot on the desktop and you can
-              insert this into your word file<br>
-            </li>
-          </ul>
-          <p>Also paste your<span style="font-weight: bold;"> final
-              program</span> <span style="font-weight: bold;"></span>into
-your
-
-
-
-
-
-
-            solutions document. </p>
-          <p> </p>
-          <div class="headingB">Exercise 2: (2 points)<br>
-          </div>
-          <p>The rest of the exercises will use the program IfGrid.java
-            to experiment with conditional expressions used in if
-            statements.&nbsp; Run the program to make sure it
-            works.&nbsp; It should produce the drawing panel shown
-            below.</p>
-          <p><img style="width: 406px; height: 450px;" alt=""
-              src="./Lab4_files/IfGridx4.png?_&amp;d2lSessionVal=XzUFghSZLNtbVzFKlTqqskDfu" width="406" height="450"><br>
-          </p>
-          <p>Examine the code to see how it works. It is very similar to
-            your program from the previous exercise. The main difference
-            is that there are two loops with the second loop nested
-            inside the first one. The behavior of these nested loops is
-            to create all combinations of x &amp; y, with <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
-            &lt;= x &lt;= 9 <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
-            &lt;= y &lt;= 9<br>
-          </p>
-          <p>The above diagram displays the x &amp; y values in the
-            nested loop. As in the previous exercise, we will not modify
-            the loops, but we will use the x &amp; y values that are
-            generated from the loops to create interesting patterns
-            using if statements. <br>
-          </p>
-          <p>Notice that inside the block associated with the loops,
-            there is also an <span style="font-weight: bold;">if
-              statement</span> that sets the color for each rectangle.<br>
-          </p>
-          <div class="codenote">if (x == 4)<br>
-            &nbsp;&nbsp;&nbsp; g.setColor(Color.green);<br>
-            else <br>
-            &nbsp;&nbsp;&nbsp; g.setColor(Color.yellow);<br>
-            <br>
-            g.fillRect(cornerX, cornerY, sizeX-1, sizeY-1);<br>
-          </div>
-          <p>Currently the program sets the color to green for each
-            rectangle that has an x value of 4.&nbsp; This ends up
-            making a vertical stripe.&nbsp; This is in fact a model of
-            how pixel-based computer graphics systems work.&nbsp; Each
-            pixel is assigned a color and patterns of pixels are
-            modified to draw lines, shapes, and pictures.<br>
-          </p>
-          <p>Change the expression in the if statement so that the right
-            half of the rectangles (those with x &gt;= 5) are colored
-            green :<br>
-          </p>
-          <blockquote> <img alt="X greater than 4"
-              src="./Lab4_files/xGreaterThan4.png?_&amp;d2lSessionVal=XzUFghSZLNtbVzFKlTqqskDfu" width="305"
-              height="335"> </blockquote>
-          <p>Copy your modified <span style="font-weight: bold;">if
-              statement</span> <span style="font-weight: bold;"></span>into
-your
-
-
-
-
-
-
-            solutions document.&nbsp; You don't need to copy any more
-            pictures for this lab.<br>
-          </p>
-          <div class="headingB">Exercise 3: (1 point)<br>
-          </div>
-          <p>Change the expression in the if statement to make the
-            diagonal green.&nbsp; Note the relationship between x and y
-            for the green squares. <br>
-          </p>
-          <p><img src="./Lab4_files/IfGridDiagonal.png?_&amp;d2lSessionVal=XzUFghSZLNtbVzFKlTqqskDfu" alt=""
-              width="327" height="362"><br>
-          </p>
-          <p>Copy your modified <span style="font-weight: bold;"></span><span
-              style="font-weight: bold;">if statement</span> <span
-              style="font-weight: bold;"></span>into your solutions
-            document.<br>
-          </p>
-          <p><br>
-          </p>
-          <div class="headingB">Exercise 4: (1 point)<br>
-          </div>
-          <p>Change the expression in the if statement to make the lower
-            left triangle green.&nbsp; Note the relationship between x
-            and y for the green squares. <br>
-          </p>
-          <p><img style="width: 325px; height: 360px;" alt="Lower left"
-              src="./Lab4_files/LowerLeft.PNG?_&amp;d2lSessionVal=XzUFghSZLNtbVzFKlTqqskDfu" width="325" height="360"><br>
-          </p>
-          <p>Copy your modified <span style="font-weight: bold;"></span>
-            <span style="font-weight: bold;">if statement</span> <span
-              style="font-weight: bold;"></span>into your solutions
-            document.</p>
-          <div class="headingB">Exercise 5: (1 point)<br>
-          </div>
-          <p>A little bit trickier.&nbsp; Change the expression in the
-            if statement to make the upper left triangle green.&nbsp;
-            Hint look at the sum x + y for the green squares. <br>
-          </p>
-          <p><img style="width: 305px; height: 338px;" alt="upper left"
-              src="./Lab4_files/UpperLeft.PNG?_&amp;d2lSessionVal=XzUFghSZLNtbVzFKlTqqskDfu" width="305" height="338"><br>
-          </p>
-          <p>Copy your modified <span style="font-weight: bold;"></span><span
-              style="font-weight: bold;">if statement</span> <span
-              style="font-weight: bold;"></span>into your solutions
-            document.</p>
-          <div class="headingB">Exercise 6: (1 point)<br>
-          </div>
-          <p>Another one.&nbsp;&nbsp;Hint look at the sums of x + y for
-            the green squares versus the yellow squares. </p>
-          <p><img style="width: 285px; height: 315px;"
-              alt="checkerboard" src="./Lab4_files/Checker.PNG?_&amp;d2lSessionVal=XzUFghSZLNtbVzFKlTqqskDfu"
-              width="285" height="315"><br>
-          </p>
-          <p> </p>
-          <p>Copy your modified <span style="font-weight: bold;"></span><span
-              style="font-weight: bold;">if statement</span> <span
-              style="font-weight: bold;"></span>into your solutions
-            document.</p>
-          <div class="headingB">Exercise 7: (1 point)<br>
-          </div>
-          <p>Now use a series of <span style="font-weight: bold;">if -
-              else</span> statements to make column 4 green, column 5
-            blue, column 6 red, and leave the rest yellow.<br>
-          </p>
-          <p>Copy your modified <span style="font-weight: bold;">if
-              statements</span> <span style="font-weight: bold;"></span>into
-your
-
-
-
-
-
-
-            solutions document. </p>
-          <div class="headingB"><span style="font-weight: bold;">YOU ARE
-              DONE!</span></div>
-          <p> <span style="font-weight: bold;"></span>Save this
-            document document to your USB flash drive and print a copy
-            to turn in.<br>
-          </p>
-          <div class="headingB">Extras - If you are done early, here are
-            some extra things to try.&nbsp; You don't need to turn these
-            in.&nbsp; They are just to enhance your understanding and
-            proficiency.<br>
-          </div>
-          <ul>
-          </ul>
-          <br>
-          <br>
-          <p><img style="width: 619px; height: 338px;" alt="Border Star"
-              src="./Lab4_files/BorderStar.PNG?_&amp;d2lSessionVal=XzUFghSZLNtbVzFKlTqqskDfu" width="619" height="338"><br>
-          </p>
-          <br>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+  
+
+Exercise 1: (3 points)  
+
+Run the DrawLoop program to make sure it works.  
+
+The DrawLoop code requires some explanation of a new construct, the **while loop**, which is being used to help make this lab more interesting. We will be learning about loops in class soon. Loops repeatedly execute a block of code, known as the body of the loop, which is highlighted in bold below:  
+
+        int i = 0;       // start at i = 0  
+        while (i < 8) **{    // repeat for i = 0,1,2...7**            **int cornerX = i\*50;  // calculate upper left corner**            **int cornerY = i\*25;**            **g.setColor(Color.WHITE);**            **g.fillOval(cornerX + 5, cornerY + 5, sizeX-10, sizeY-10);**            **g.setColor(Color.BLACK);**            **g.drawRect(cornerX, cornerY, sizeX, sizeY);**            **i++; // increment i for next iteration**        **}**  
+
+  
+
+This loop will repeat 8 times. The value of the variable i is 0 the first time, 1 the second time, and so on up to a value of 7. The effect of this code is to draw 8 ovals and eight rectangles. In this lab you will not need to change the behavior of the loop.  
+
+You are going to be making a series of small changes.  When you are done it should look like this:  
+   
+![](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/DrawLoop2Soln.png?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)
+
+Below are the changes that you need to make. Make each change one at a time and test it and make sure you understand it before moving on.  
+
+*   Change the background color to a new color of your choice.  I used the Red Green Blue values shown below.  Experiment and create an interesting color. Note that the additive color model of emitted light (RGB) may not match your color mixing intuition (red plus green does not make brown.)  
+    
+
+   
+
+panel.setBackground(new Color(200, 250, 150));  
+
+  
+
+*   Change the color of the ovals from all white to alternating between two colors. Specifically, replace the statement to set the color to white with:
+
+  
+
+if (i%2 == 0)                     <---- make sure there are 2 equal signs  
+    g.setColor(Color.orange);  
+else  
+    g.setColor(Color.green);  
+
+  
+
+> Recall that the loop changes the value of **i** every iteration. The expression i%2 == 0 uses the modulus operator % (a.k.a. remainder) to test if a value is even or odd.   In this expression if the value of i is even, then the remainder when divided by two will be 0, but if i contains an odd value then the remainder will be 1.  This is used to make the if statement alternate each iteration between the true and false cases. (Remember this even/odd test. It is very useful!)  
+
+Copy and paste a screen capture of the final drawing panel into your solutions document.  In Windows this can be done by:  
+
+*   Selecting the window you want to capture.
+*   Hit Alt-PrintScreen to capture an image of your window to the clipboard.
+*   Switch into your editor and paste it with Ctrl-V.
+
+On the Mac :  
+
+*   Command-Shift-4  
+    
+*   Click on one corner and drag mouse to diagonal corner  
+    
+*   will find the screen snapshot on the desktop and you can insert this into your word file  
+    
+
+Also paste your final program into your solutions document.
+
+Exercise 2: (2 points)  
+
+The rest of the exercises will use the program IfGrid.java to experiment with conditional expressions used in if statements.  Run the program to make sure it works.  It should produce the drawing panel shown below.
+
+![](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/IfGridx4.png?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
+
+Examine the code to see how it works. It is very similar to your program from the previous exercise. The main difference is that there are two loops with the second loop nested inside the first one. The behavior of these nested loops is to create all combinations of x & y, with  
+          0 <= x <= 9  
+          0 <= y <= 9  
+
+The above diagram displays the x & y values in the nested loop. As in the previous exercise, we will not modify the loops, but we will use the x & y values that are generated from the loops to create interesting patterns using if statements.  
+
+Notice that inside the block associated with the loops, there is also an if statement that sets the color for each rectangle.  
+
+if (x == 4)  
+    g.setColor(Color.green);  
+else  
+    g.setColor(Color.yellow);  
+  
+g.fillRect(cornerX, cornerY, sizeX-1, sizeY-1);  
+
+Currently the program sets the color to green for each rectangle that has an x value of 4.  This ends up making a vertical stripe.  This is in fact a model of how pixel-based computer graphics systems work.  Each pixel is assigned a color and patterns of pixels are modified to draw lines, shapes, and pictures.  
+
+Change the expression in the if statement so that the right half of the rectangles (those with x >= 5) are colored green :  
+
+> ![X greater than 4](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/xGreaterThan4.png?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)
+
+Copy your modified if statement into your solutions document.  You don't need to copy any more pictures for this lab.  
+
+Exercise 3: (1 point)  
+
+Change the expression in the if statement to make the diagonal green.  Note the relationship between x and y for the green squares.  
+
+![](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/IfGridDiagonal.png?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
+
+Copy your modified if statement into your solutions document.  
+
+  
+
+Exercise 4: (1 point)  
+
+Change the expression in the if statement to make the lower left triangle green.  Note the relationship between x and y for the green squares.  
+
+![Lower left](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/LowerLeft.PNG?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
+
+Copy your modified if statement into your solutions document.
+
+Exercise 5: (1 point)  
+
+A little bit trickier.  Change the expression in the if statement to make the upper left triangle green.  Hint look at the sum x + y for the green squares.  
+
+![upper left](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/UpperLeft.PNG?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
+
+Copy your modified if statement into your solutions document.
+
+Exercise 6: (1 point)  
+
+Another one.  Hint look at the sums of x + y for the green squares versus the yellow squares.
+
+![checkerboard](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/Checker.PNG?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
+
+Copy your modified if statement into your solutions document.
+
+Exercise 7: (1 point)  
+
+Now use a series of if - else statements to make column 4 green, column 5 blue, column 6 red, and leave the rest yellow.  
+
+Copy your modified if statements into your solutions document.
+
+YOU ARE DONE!
+
+Save this document document to your USB flash drive and print a copy to turn in.  
+
+Extras - If you are done early, here are some extra things to try.  You don't need to turn these in.  They are just to enhance your understanding and proficiency.  
+
+  
+  
+
+![Border Star](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/BorderStar.PNG?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)
