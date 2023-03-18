@@ -26,7 +26,15 @@ Run the DrawLoop program to make sure it works.
 The DrawLoop code requires some explanation of a new construct, the **while loop**, which is being used to help make this lab more interesting. We will be learning about loops in class soon. Loops repeatedly execute a block of code, known as the body of the loop, which is highlighted in bold below:  
 
         int i = 0;       // start at i = 0  
-        while (i < 8) **{    // repeat for i = 0,1,2...7**            **int cornerX = i\*50;  // calculate upper left corner**            **int cornerY = i\*25;**            **g.setColor(Color.WHITE);**            **g.fillOval(cornerX + 5, cornerY + 5, sizeX-10, sizeY-10);**            **g.setColor(Color.BLACK);**            **g.drawRect(cornerX, cornerY, sizeX, sizeY);**            **i++; // increment i for next iteration**        **}**  
+        while (i < 8) **{    // repeat for i = 0,1,2...7
+        **            **int cornerX = i\*50;  // calculate upper left corner
+        **            **int cornerY = i\*25;
+        **            **g.setColor(Color.WHITE);
+        **            **g.fillOval(cornerX + 5, cornerY + 5, sizeX-10, sizeY-10);
+        **            **g.setColor(Color.BLACK);
+        **            **g.drawRect(cornerX, cornerY, sizeX, sizeY);
+        **            **i++; // increment i for next iteration
+        **        **}**  
 
   
 
