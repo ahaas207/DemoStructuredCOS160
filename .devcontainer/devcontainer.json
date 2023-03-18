@@ -1,7 +1,7 @@
 {
    "forwardPorts": [
-        5900, // VNC server
-        6081 // VNC client
+        5901, // VNC server
+        6080 // VNC client
     ],
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
