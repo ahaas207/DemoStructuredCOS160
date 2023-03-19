@@ -1,28 +1,35 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "features": {
-      "ghcr.io/devcontainers/features/java:1": {}
-},
-  "settings": {},
-  "forwardPorts": [
-    6080
-  ],
-  "postCreateCommand": "/workspace/.devcontainer/setup.sh",
-  "remoteEnv": {
-    "GIT_USER": "ahaas207",
-    "GIT_REPO": "DemoStructuredCOS160"
-  },
-"customizations": {
-	"vscode": {
-		"extensions": [
-			"MS-vsliveshare.vsliveshare",
-			"CS50.ddb50",
-			"CS50.markdown50",
-			"vscjava.vscode-java-pack",
-			"vscjava.vscode-java-debug",
-			"eamodio.gitlens",
-			"ms-vscode.remote-containers"
-		]
-	}
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "features": {
+        "ghcr.io/devcontainers/features/java:1": {}
+    },
+    "settings": {
+        "files.associations": {
+            "*.md": "markdown"
+        },
+        "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownFile": true
+    },
+    "forwardPorts": [
+        6080
+    ],
+    "postCreateCommand": "/workspace/.devcontainer/setup.sh",
+    "remoteEnv": {
+        "GIT_USER": "ahaas207",
+        "GIT_REPO": "DemoStructuredCOS160"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "MS-vsliveshare.vsliveshare",
+                "CS50.ddb50",
+                "CS50.markdown50",
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-java-debug",
+                "eamodio.gitlens",
+                "ms-vscode.remote-containers",
+                "shd101wyy.markdown-preview-enhanced"
+            ]
+        }
+    }
 }
-}
+
