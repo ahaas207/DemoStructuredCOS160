@@ -1,14 +1,19 @@
 {
-   "forwardPorts": [
-        5901, // VNC server
-        6080 // VNC client
-    ],
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
       "ghcr.io/devcontainers/features/java:1": {},
       "ghcr.io/devcontainers/features/desktop-lite:1": {}
       
 },
+  "settings": {},
+  "forwardPorts": [
+    6080
+  ],
+  "postCreateCommand": "/workspace/.devcontainer/setup.sh",
+  "remoteEnv": {
+    "GIT_USER": "ahaas207",
+    "GIT_REPO": "DemoStructuredCOS160"
+  },
 "customizations": {
 	"vscode": {
 		"extensions": [
@@ -17,7 +22,8 @@
 			"CS50.markdown50",
 			"vscjava.vscode-java-pack",
 			"vscjava.vscode-java-debug",
-			"eamodio.gitlens"
+			"eamodio.gitlens",
+			"ms-vscode.remote-containers"
 		]
 	}
 }
