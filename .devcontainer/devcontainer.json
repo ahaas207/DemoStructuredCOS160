@@ -10,12 +10,14 @@
         "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownFile": true
     },
     "forwardPorts": [
-        6080
+        6080,
+        6000
     ],
     "postCreateCommand": "/workspace/.devcontainer/setup.sh",
     "remoteEnv": {
         "GIT_USER": "ahaas207",
-        "GIT_REPO": "DemoStructuredCOS160"
+        "GIT_REPO": "DemoStructuredCOS160",
+        "DISPLAY": "localhost:0"
     },
     "customizations": {
         "vscode": {
