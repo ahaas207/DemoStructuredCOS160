@@ -2,7 +2,15 @@ FROM mcr.microsoft.com/devcontainers/universal:2
 
 # Install necessary packages
 RUN apt-get update && \
-    apt-get install -y tigervnc-standalone-server tigervnc-common novnc net-tools xterm
+    apt-get install -y tigervnc-standalone-server tigervnc-common novnc net-tools xterm openssh-server x11-apps x11vnc xfce4 xfce4-terminal
+
+# Set up SSH server
+RUN mkdir /var/run/sshd
+RUN echo 'root:password' | chpasswd
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -i 's/#X11Forwarding no/X11Forwarding yes/' /etc/ssh/sshd_config
+RUN sed -i 's/#X11UseLocalhost yes/X11UseLocalhost no/' /etc/ssh/sshd_config
+RUN echo 'X11UseLocalhost no' >> /etc/ssh/sshd_config
 
 # Set up VNC
 ENV USER=vscode \
