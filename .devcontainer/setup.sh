@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Update package index
-sudo apt-get update
-
 # Install noVNC
 sudo apt-get update && sudo apt-get install -y novnc
 
