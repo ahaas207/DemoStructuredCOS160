@@ -22,7 +22,8 @@
     },
     "customizations": {
         "bashrc": [
-            "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/workspaces/.codespaces/shared/editors/jetbrains/*/plugins/remote-dev-server/selfcontained/lib"
+            "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/workspaces/.codespaces/shared/editors/jetbrains/*/plugins/remote-dev-server/selfcontained/lib",
+            "alias open-browser='xdg-open http://localhost:6080/'"
         ],
         "vscode": {
             "extensions": [
@@ -38,5 +39,6 @@
         }
     }
 }
+
 
 
