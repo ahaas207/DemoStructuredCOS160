@@ -17,7 +17,8 @@
     "remoteEnv": {
         "GIT_USER": "ahaas207",
         "GIT_REPO": "DemoStructuredCOS160",
-        "DISPLAY": "localhost:0"
+        "DISPLAY": "localhost:0",
+        "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:/workspaces/.codespaces/shared/editors/jetbrains/*/plugins/remote-dev-server/selfcontained/lib"
     },
     "customizations": {
         "bashrc": [
