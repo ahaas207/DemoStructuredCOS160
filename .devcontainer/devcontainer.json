@@ -1,6 +1,10 @@
 {
     "image": "mcr.microsoft.com/devcontainers/universal:2",
     "features": {
+        "ssh": {
+            "install": true,
+            "servicePassword": "password"
+        },
         "ghcr.io/devcontainers/features/java:1": {}
     },
     "settings": {
@@ -21,9 +25,18 @@
         "DISPLAY": "localhost:0",
         "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:/workspaces/.codespaces/shared/editors/jetbrains/*/plugins/remote-dev-server/selfcontained/lib"
     },
+    "mounts": [
+        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind"
+    ],
+    "runArgs": [
+        "-v",
+        "/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock"
+    ],
     "customizations": {
         "bashrc": [
-            "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/workspaces/.codespaces/shared/editors/jetbrains/*/plugins/remote-dev-server/selfcontained/lib"
+            "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/workspaces/.codespaces/shared/editors/jetbrains/*/plugins/remote-dev-server/selfcontained/lib",
+            "alias open-browser='xdg-open http://localhost:6080/'",
+            "export DISPLAY=:0"
         ],
         "vscode": {
             "extensions": [
@@ -39,6 +52,7 @@
         }
     }
 }
+
 
 
 
