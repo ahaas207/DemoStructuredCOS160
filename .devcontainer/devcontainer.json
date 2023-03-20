@@ -20,6 +20,9 @@
         "DISPLAY": "localhost:0"
     },
     "customizations": {
+        "bashrc": [
+            "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/workspaces/.codespaces/shared/editors/jetbrains/*/plugins/remote-dev-server/selfcontained/lib"
+        ],
         "vscode": {
             "extensions": [
                 "MS-vsliveshare.vsliveshare",
@@ -34,4 +37,5 @@
         }
     }
 }
+
 
