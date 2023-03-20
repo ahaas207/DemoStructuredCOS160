@@ -14,3 +14,6 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/workspaces/.codespaces/shared/editors/j
 
 # Add port forwarding rule
 curl -sSL https://raw.githubusercontent.com/$GIT_USER/$GIT_REPO/main/codespace-port-forwarding.sh | sudo bash
+
+# Open the browser
+open-browser
