@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Install the libxtst6 package
+sudo apt-get update && sudo apt-get install -y libxtst6
+
 # Install noVNC
 sudo apt-get update && sudo apt-get install -y novnc
 
