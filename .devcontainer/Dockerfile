@@ -1,5 +1,5 @@
-# Use an official Java development image as a parent image
-FROM openjdk:8-jdk
+# Use an official Visual Studio Code Java development image as a parent image
+FROM mcr.microsoft.com/vscode/devcontainers/java:0-11
 
 # Set the working directory in the container to /app
 WORKDIR /app
@@ -16,8 +16,5 @@ RUN ln -s /usr/share/novnc/vnc.html /usr/share/novnc/index.html
 # Expose the noVNC port
 EXPOSE 8081
 
-FROM mcr.microsoft.com/vscode/devcontainers/java:0-11
-
-RUN apt-get update && apt-get install -y openjdk-11-jdk
 
 
