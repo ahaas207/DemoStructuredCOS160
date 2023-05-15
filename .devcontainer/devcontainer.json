@@ -1,57 +1,21 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/universal:2",
-    "features": {
-        "ssh": {
-            "install": true,
-            "servicePassword": "password"
-        },
-        "ghcr.io/devcontainers/features/java:1": {}
+    "name": "Java Development",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
     },
-    "settings": {
-        "files.associations": {
-            "*.md": "markdown"
-        },
-        "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownFile": true
+    "settings": { 
+        "java.home": "/docker-java-home",
+        "java.configuration.updateBuildConfiguration": "automatic"
     },
-    "forwardPorts": [
-        6080,
-        6000
+    "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-java-debug"
     ],
-    "postCreateCommand": "/workspace/.devcontainer/setup.sh",
-    "postStartCommand": "alias open-browser='xdg-open http://localhost:6080/'",
-    "remoteEnv": {
-        "GIT_USER": "ahaas207",
-        "GIT_REPO": "DemoStructuredCOS160",
-        "DISPLAY": "localhost:0",
-        "LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:/workspaces/.codespaces/shared/editors/jetbrains/*/plugins/remote-dev-server/selfcontained/lib"
-    },
-    "mounts": [
-        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind"
-    ],
-    "runArgs": [
-        "-v",
-        "/run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock"
-    ],
-    "customizations": {
-        "bashrc": [
-            "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/workspaces/.codespaces/shared/editors/jetbrains/*/plugins/remote-dev-server/selfcontained/lib",
-            "alias open-browser='xdg-open http://localhost:6080/'",
-            "export DISPLAY=:0"
-        ],
-        "vscode": {
-            "extensions": [
-                "MS-vsliveshare.vsliveshare",
-                "CS50.ddb50",
-                "CS50.markdown50",
-                "vscjava.vscode-java-pack",
-                "vscjava.vscode-java-debug",
-                "eamodio.gitlens",
-                "ms-vscode.remote-containers",
-                "shd101wyy.markdown-preview-enhanced"
-            ]
-        }
-    }
+    "postCreateCommand": "Xvfb :1 -screen 0 1024x768x16 & sleep 1; x11vnc -display :1 -nopw -listen localhost -xkb -ncache 10 -ncache_cr -forever & sleep 1; /usr/share/novnc/utils/launch.sh --vnc localhost:5900 &",
+    "forwardPorts": [8081]
 }
+
 
 
 
