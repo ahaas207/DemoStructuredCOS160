@@ -16,3 +16,8 @@ RUN ln -s /usr/share/novnc/vnc.html /usr/share/novnc/index.html
 # Expose the noVNC port
 EXPOSE 8081
 
+FROM mcr.microsoft.com/vscode/devcontainers/java:0-11
+
+RUN apt-get update && apt-get install -y openjdk-11-jdk
+
+
