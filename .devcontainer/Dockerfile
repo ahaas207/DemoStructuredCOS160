@@ -1,31 +1,18 @@
-FROM mcr.microsoft.com/devcontainers/universal:2
+# Use an official Java development image as a parent image
+FROM openjdk:8-jdk
 
-# Install necessary packages
-RUN apt-get update && \
-    apt-get install -y tigervnc-standalone-server tigervnc-common novnc net-tools xterm openssh-server x11-apps x11vnc xfce4 xfce4-terminal
+# Set the working directory in the container to /app
+WORKDIR /app
 
-# Set up SSH server
-RUN mkdir /var/run/sshd
-RUN echo 'root:password' | chpasswd
-RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-RUN sed -i 's/#X11Forwarding no/X11Forwarding yes/' /etc/ssh/sshd_config
-RUN sed -i 's/#X11UseLocalhost yes/X11UseLocalhost no/' /etc/ssh/sshd_config
-RUN echo 'X11UseLocalhost no' >> /etc/ssh/sshd_config
+# Install Xvfb, a VNC server, a lightweight window manager, and noVNC
+RUN apt-get update && apt-get install -y xvfb x11vnc fluxbox novnc
 
-# Set up VNC
-ENV USER=vscode \
-    DISPLAY=:1 \
-    VNC_PORT=5901 \
-    NO_VNC_PORT=6080 \
-    VNC_COL_DEPTH=24 \
-    VNC_RESOLUTION=1280x800
+# Cleanup apt cache
+RUN apt-get clean
 
-# Expose VNC and noVNC ports
-EXPOSE $VNC_PORT $NO_VNC_PORT
+# Set up noVNC
+RUN ln -s /usr/share/novnc/vnc.html /usr/share/novnc/index.html
 
-# Add customizations
-COPY .bashrc /root/.bashrc
-COPY setup.sh /usr/local/bin/setup.sh
+# Expose the noVNC port
+EXPOSE 8081
 
-# Set up entrypoint
-CMD ["/usr/local/bin/setup.sh"]
