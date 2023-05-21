@@ -23,7 +23,8 @@ RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.zip -P/tmp && \
     chown -R ubuntu:ubuntu /opt/noVNC
 
 # Copy the startup script into the image
-COPY .docker/vnc_startup.sh /dockerstartup/
+COPY vnc_startup.sh /dockerstartup/
+
 RUN chmod +x /dockerstartup/vnc_startup.sh
 
 # Expose the necessary ports
