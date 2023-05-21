@@ -1,38 +1,38 @@
-# We'll start from an Ubuntu base image
-FROM ubuntu:20.04
+# Start from the base OpenJDK 8 image
+FROM openjdk:8-jdk
 
-# This will prevent prompts from asking for user input during package installation
-ARG DEBIAN_FRONTEND=noninteractive
+# Set up environment variables
+ENV DISPLAY=:1 \
+    VNC_PORT=5901 \
+    NO_VNC_PORT=6901 \
+    JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
-# Unset user
-USER root
-
-# Update packages and install tools
+# Install necessary software
 RUN apt-get update && apt-get install -y \
-    openjdk-11-jdk \
     openbox \
     xvfb \
     x11vnc \
+    wget \
     unzip \
-    net-tools \
-    curl \
-    git
+    && rm -rf /var/lib/apt/lists/* 
 
-# Setup NoVNC
-RUN mkdir -p /opt/novnc/utils/websockify \
-    && curl -L -o /tmp/novnc.zip https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.zip \
-    && unzip /tmp/novnc.zip -d /tmp \
-    && mv /tmp/noVNC-1.4.0 /opt/novnc \
-    && rm -rf /tmp/noVNC-1.4.0 /tmp/novnc.zip
+RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.zip -P/tmp && \
+    unzip /tmp/v1.4.0.zip -d /tmp && \
+    mv /tmp/noVNC-1.4.0 /opt/noVNC && \
+    rm -rf /tmp/noVNC-1.4.0 /tmp/v1.4.0.zip && \
+    chown -R ubuntu:ubuntu /opt/noVNC
 
-# Setup Xvfb
-RUN echo '#!/bin/bash\nXvfb :0 -screen 0 1280x800x24 &' > /etc/X11/xinit/xserverrc
+# Copy the startup script into the image
+COPY .docker/vnc_startup.sh /dockerstartup/
+RUN chmod +x /dockerstartup/vnc_startup.sh
 
-# Start up scripts
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
+# Expose the necessary ports
+EXPOSE $VNC_PORT $NO_VNC_PORT
 
-CMD ["/start.sh"]
+# Start up VNC, OpenBox and NoVNC
+ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
+CMD ["--wait"]
+
 
 
 
