@@ -36,8 +36,6 @@ RUN chmod +x /dockerstartup/vnc_startup.sh
 # Expose the necessary ports
 EXPOSE 5901 6901
 
-# Set the entry point to run your Java application
-ENTRYPOINT ["/usr/bin/java", "-cp", "/path/to/your/java/application", "BoxGuy"]
 
 
 
