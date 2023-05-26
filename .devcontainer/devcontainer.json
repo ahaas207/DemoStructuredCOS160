@@ -5,7 +5,14 @@
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
-  "remoteUser": "root"
+"remoteUser": "root",
+"customizations": {
+	"vscode": {
+		"extensions": [
+			"vscjava.vscode-java-pack"
+		]
+	}
+}
 }
 
 
