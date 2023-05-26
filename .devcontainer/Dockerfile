@@ -23,8 +23,9 @@ RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.zip -P /tmp && 
     rm -rf /tmp/noVNC-1.4.0 /tmp/v1.4.0.zip && \
     chown -R root:root /opt/noVNC
 
-# Set up Xvfb startup script
-RUN echo "Xvfb $DISPLAY -screen 0 1024x768x24 &" > /dockerstartup/xvfb.sh && \
+# Set up Xvfb startup script and create the /dockerstartup directory
+RUN mkdir /dockerstartup && \
+    echo "Xvfb $DISPLAY -screen 0 1024x768x24 &" > /dockerstartup/xvfb.sh && \
     chmod +x /dockerstartup/xvfb.sh
 
 # Copy the startup script into the image
