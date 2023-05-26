@@ -5,15 +5,17 @@
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
-"remoteUser": "root",
-"customizations": {
-	"vscode": {
-		"extensions": [
-			"vscjava.vscode-java-pack"
-		]
-	}
+  "remoteUser": "root",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack"
+      ]
+    }
+  },
+  "postCreateCommand": "/dockerstartup/xvfb.sh && /dockerstartup/vnc_startup.sh"
 }
-}
+
 
 
 
