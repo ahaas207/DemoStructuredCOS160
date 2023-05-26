@@ -23,6 +23,10 @@ RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.zip -P /tmp && 
     rm -rf /tmp/noVNC-1.4.0 /tmp/v1.4.0.zip && \
     chown -R root:root /opt/noVNC
 
+# Set up Xvfb startup script
+RUN echo "Xvfb $DISPLAY -screen 0 1024x768x24 &" > /dockerstartup/xvfb.sh && \
+    chmod +x /dockerstartup/xvfb.sh
+
 # Copy the startup script into the image
 COPY vnc_startup.sh /dockerstartup/
 
@@ -32,7 +36,7 @@ RUN chmod +x /dockerstartup/vnc_startup.sh
 # Expose the necessary ports
 EXPOSE $VNC_PORT $NO_VNC_PORT
 
-# Start up VNC, OpenBox, and noVNC
+# Start up Xvfb, VNC, OpenBox, and noVNC
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]
 
