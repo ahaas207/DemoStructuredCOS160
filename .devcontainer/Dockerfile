@@ -2,9 +2,7 @@
 FROM openjdk:8-jdk
 
 # Set up environment variables
-ENV DISPLAY=:1 \
-    VNC_PORT=5901 \
-    NO_VNC_PORT=6901 \
+ENV DISPLAY=:0 \
     JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 # Install necessary software
@@ -26,6 +24,7 @@ RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.zip -P /tmp && 
 # Set up Xvfb startup script and create the /dockerstartup directory
 RUN mkdir /dockerstartup && \
     echo "Xvfb $DISPLAY -screen 0 1024x768x24 &" > /dockerstartup/xvfb.sh && \
+    echo "export DISPLAY=$DISPLAY" >> /etc/profile && \
     chmod +x /dockerstartup/xvfb.sh
 
 # Copy the startup script into the image
@@ -35,11 +34,11 @@ COPY vnc_startup.sh /dockerstartup/
 RUN chmod +x /dockerstartup/vnc_startup.sh
 
 # Expose the necessary ports
-EXPOSE $VNC_PORT $NO_VNC_PORT
+EXPOSE 5901 6901
 
-# Start up Xvfb, VNC, OpenBox, and noVNC
-ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
-CMD ["--wait"]
+# Set the entry point to run your Java application
+ENTRYPOINT ["/usr/bin/java", "-cp", "/path/to/your/java/application", "BoxGuy"]
+
 
 
 
