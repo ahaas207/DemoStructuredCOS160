@@ -2,19 +2,20 @@
   "name": "Java with GUI",
   "dockerFile": "Dockerfile",
   "forwardPorts": [5901, 6901],
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
   "remoteUser": "root",
   "customizations": {
     "vscode": {
       "extensions": [
-        "vscjava.vscode-java-pack",      
-      ]
+        "vscjava.vscode-java-pack"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "{your-terminal-profile-name}"
+      }
     }
   },
   "postCreateCommand": "/dockerstartup/vnc_startup.sh"
 }
+
 
 
 
