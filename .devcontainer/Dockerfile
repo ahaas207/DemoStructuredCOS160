@@ -13,8 +13,10 @@ RUN apt-get update && apt-get install -y \
     wget \
     unzip \
     python3-pip \
-    x11-utils \ 
+    x11-utils \
+    x11-xserver-utils \ 
     && rm -rf /var/lib/apt/lists/*
+
 
 # Install websockify using pip
 RUN pip3 install websockify  
