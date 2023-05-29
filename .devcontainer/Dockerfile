@@ -41,7 +41,8 @@ RUN chmod +x /dockerstartup/vnc_startup.sh
 EXPOSE 5901 6901
 
 # Run the xvfb and vnc startup scripts when the container starts
-ENTRYPOINT ["/bin/bash", "-c", "/dockerstartup/xvfb.sh && /dockerstartup/vnc_startup.sh && tail -f /dev/null"]
+ENTRYPOINT ["/bin/bash", "-c", "./dockerstartup/xvfb.sh; ./dockerstartup/vnc_startup.sh; tail -f /dev/null"]
+
 
 
 
