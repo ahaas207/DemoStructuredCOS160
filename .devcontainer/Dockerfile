@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
     x11vnc \
     wget \
     unzip \
-    python3-pip \ 
+    python3-pip \
+    x11-utils \ 
     && rm -rf /var/lib/apt/lists/*
 
 # Install websockify using pip
@@ -47,8 +48,9 @@ RUN chmod +x /dockerstartup/vnc_startup.sh
 # Expose the necessary ports
 EXPOSE 5901 6901
 
-# Run the xvfb, x11vnc, and vnc startup scripts when the container starts
-ENTRYPOINT ["/bin/bash", "-c", "./dockerstartup/xvfb.sh; ./dockerstartup/x11vnc.sh; ./dockerstartup/vnc_startup.sh; tail -f /dev/null"]
+# Run the xvfb startup script when the container starts
+ENTRYPOINT ["/bin/bash", "-c", "./dockerstartup/xvfb.sh; tail -f /dev/null"]
+
 
 
 
