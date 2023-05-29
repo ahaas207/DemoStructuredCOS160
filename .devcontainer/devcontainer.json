@@ -13,7 +13,7 @@
       ]
     }
   },
-  "postCreateCommand": "/dockerstartup/xvfb.sh && /dockerstartup/vnc_startup.sh"
+  "postCreateCommand": "/dockerstartup/vnc_startup.sh"
 }
 
 
