@@ -4,7 +4,9 @@ openbox-session &
 
 # Start the X virtual framebuffer
 Xvfb :0 -screen 0 1024x768x16 &
+sleep 2
 export DISPLAY=:0
+
 
 # Wait for the X server to be ready
 timeout_counter=0
