@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     x11vnc \
     wget \
     unzip \
-    python3-pip \  # Add this line
+    python3-pip \ 
     && rm -rf /var/lib/apt/lists/*
 
 # Install websockify using pip
