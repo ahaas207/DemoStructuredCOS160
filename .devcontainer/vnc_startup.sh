@@ -1,7 +1,10 @@
 #!/bin/bash
 # Start up OpenBox, our window manager
-echo $DISPLAY
 openbox-session &
+
+# Start the X virtual framebuffer
+Xvfb :0 -screen 0 1024x768x16 &
+export DISPLAY=:0
 
 # Wait for the X server to be ready
 timeout_counter=0
@@ -19,5 +22,6 @@ x11vnc -display $DISPLAY -forever -shared -nopw -rfbport 5901 &
 
 # Start up NoVNC
 websockify --web /opt/noVNC/ 6901 localhost:5901
+
 
 
