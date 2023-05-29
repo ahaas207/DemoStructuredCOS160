@@ -31,6 +31,13 @@ RUN mkdir /dockerstartup && \
     echo "export DISPLAY=$DISPLAY" >> /etc/profile && \
     chmod +x /dockerstartup/xvfb.sh
 
+# Install x11vnc
+RUN apt-get update && apt-get install -y x11vnc && rm -rf /var/lib/apt/lists/*
+
+# Set up x11vnc startup script
+RUN echo "x11vnc -cursor arrow -display $DISPLAY -forever -loop -noxrecord -noxdamage -xkb -shared &" > /dockerstartup/x11vnc.sh && \
+    chmod +x /dockerstartup/x11vnc.sh
+
 # Copy the startup script into the image
 COPY vnc_startup.sh /dockerstartup/
 
@@ -40,8 +47,8 @@ RUN chmod +x /dockerstartup/vnc_startup.sh
 # Expose the necessary ports
 EXPOSE 5901 6901
 
-# Run the xvfb and vnc startup scripts when the container starts
-ENTRYPOINT ["/bin/bash", "-c", "./dockerstartup/xvfb.sh; ./dockerstartup/vnc_startup.sh; tail -f /dev/null"]
+# Run the xvfb, x11vnc, and vnc startup scripts when the container starts
+ENTRYPOINT ["/bin/bash", "-c", "./dockerstartup/xvfb.sh; ./dockerstartup/x11vnc.sh; ./dockerstartup/vnc_startup.sh; tail -f /dev/null"]
 
 
 
