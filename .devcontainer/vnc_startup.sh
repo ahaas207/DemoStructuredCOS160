@@ -1,5 +1,6 @@
 #!/bin/bash
 # Start up OpenBox, our window manager
+echo $DISPLAY
 openbox-session &
 
 # Wait for the X server to be ready
