@@ -1,7 +1,7 @@
 {
   "name": "Java with GUI",
   "dockerFile": "Dockerfile",
-  "forwardPorts": [6901],
+  "forwardPorts": [5901, 6901],
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
