@@ -9,7 +9,12 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "vscjava.vscode-java-pack"
+        "vscjava.vscode-java-pack",
+        "/opt/cs50/extensions/cs50-0.0.1.vsix",
+        "/opt/cs50/extensions/explain50-1.0.0.vsix",
+        "/opt/cs50/extensions/phpliteadmin-0.0.1.vsix",
+        "/opt/cs50/extensions/style50-0.0.1.vsix",
+        "cs50.ddb50"      
       ]
     }
   },
