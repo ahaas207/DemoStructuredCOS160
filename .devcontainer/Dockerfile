@@ -12,7 +12,11 @@ RUN apt-get update && apt-get install -y \
     x11vnc \
     wget \
     unzip \
+    python3-pip \  # Add this line
     && rm -rf /var/lib/apt/lists/*
+
+# Install websockify using pip
+RUN pip3 install websockify  
 
 # Download and install noVNC
 RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.zip -P /tmp && \
@@ -36,7 +40,7 @@ RUN chmod +x /dockerstartup/vnc_startup.sh
 # Expose the necessary ports
 EXPOSE 5901 6901
 
-# Run the vnc startup script when the container starts
+# Run the xvfb and vnc startup scripts when the container starts
 ENTRYPOINT ["/bin/bash", "-c", "/dockerstartup/xvfb.sh && /dockerstartup/vnc_startup.sh && tail -f /dev/null"]
 
 
