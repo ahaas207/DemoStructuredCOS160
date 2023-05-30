@@ -37,6 +37,10 @@ RUN mkdir /tmp/cs50-extension && \
     unzip main.zip && \
     mv cs50.vsix-main /usr/share/code-server/extensions/cs50.vsix
 
+# Install cs50vsix-client Python package
+COPY python-clients/cs50vsix-client /tmp/cs50vsix-client
+RUN pip3 install /tmp/cs50vsix-client
+
 # Copy the startup script into the image
 COPY vnc_startup.sh /dockerstartup/
 
@@ -48,8 +52,6 @@ EXPOSE 5901 6901
 
 # Run the xvfb startup script when the container starts
 ENTRYPOINT ["/bin/bash", "-c", "./dockerstartup/xvfb.sh; tail -f /dev/null"]
-
-
 
 
 
