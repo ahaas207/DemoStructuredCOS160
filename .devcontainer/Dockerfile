@@ -57,14 +57,3 @@ EXPOSE 5901 6901
 
 # Run the xvfb startup script when the container starts
 ENTRYPOINT ["/bin/bash", "-c", "./dockerstartup/xvfb.sh; tail -f /dev/null"]
-
-
-
-
-
-
-
-
-
-
-
