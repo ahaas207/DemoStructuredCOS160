@@ -31,14 +31,15 @@ RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.zip -P /tmp && 
 RUN mkdir -p /usr/share/code-server/extensions/cs50.vsix
 
 # Install VS Code extension
-RUN mkdir /tmp/cs50-extension && \
+RUN mkdir -p /tmp/cs50-extension && \
     cd /tmp/cs50-extension && \
     wget https://github.com/cs50/cs50.vsix/archive/refs/heads/main.zip && \
     unzip main.zip && \
     mv cs50.vsix-main /usr/share/code-server/extensions/cs50.vsix
 
 # Copy cs50vsix-client from extension directory to temporary location
-RUN cp -r /usr/share/code-server/extensions/cs50.vsix/python-clients/cs50vsix-client /tmp/cs50vsix-client
+RUN mkdir -p /tmp/cs50vsix-client && \
+    cp -r /usr/share/code-server/extensions/cs50.vsix/python-clients/cs50vsix-client /tmp/cs50vsix-client
 
 # Install cs50vsix-client Python package
 RUN pip3 install /tmp/cs50vsix-client
