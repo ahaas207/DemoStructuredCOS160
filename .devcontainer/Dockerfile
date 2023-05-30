@@ -27,6 +27,9 @@ RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.zip -P /tmp && 
     rm -rf /tmp/noVNC-1.4.0 /tmp/v1.4.0.zip && \
     chown -R root:root /opt/noVNC
 
+# Create the destination directory for the VS Code extension
+RUN mkdir -p /usr/share/code-server/extensions
+
 # Install VS Code extension
 RUN mkdir /tmp/cs50-extension && \
     cd /tmp/cs50-extension && \
@@ -45,6 +48,7 @@ EXPOSE 5901 6901
 
 # Run the xvfb startup script when the container starts
 ENTRYPOINT ["/bin/bash", "-c", "./dockerstartup/xvfb.sh; tail -f /dev/null"]
+
 
 
 
