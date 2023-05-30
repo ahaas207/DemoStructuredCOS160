@@ -38,12 +38,12 @@ RUN mkdir /tmp/cs50-extension && \
     mv cs50.vsix-main /usr/share/code-server/extensions/cs50.vsix
 
 # Copy cs50vsix-client from extension directory to temporary location
-RUN mkdir -p /tmp/cs50vsix-client && \
-    cp -r /usr/share/code-server/extensions/cs50.vsix/python-clients/cs50vsix-client /tmp/cs50vsix-client
+#RUN mkdir -p /tmp/cs50vsix-client && \
+    #cp -r /usr/share/code-server/extensions/cs50.vsix/python-clients/cs50vsix-client /tmp/cs50vsix-client
 
 # Install the cs50vsix-client package
-WORKDIR /tmp/cs50vsix-client
-RUN pip3 install .
+#WORKDIR /tmp/cs50vsix-client
+#RUN pip3 install .
 
 
 # Copy the startup script into the image
