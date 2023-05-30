@@ -39,12 +39,12 @@ RUN mkdir /tmp/cs50-extension && \
 
 # Copy cs50vsix-client from extension directory to temporary location
 RUN mkdir -p /tmp/cs50vsix-client && \
-    cp -r $(find /usr/share/code-server/extensions/cs50.vsix -name cs50vsix-client) /tmp/cs50vsix-client
+    cp -r /usr/share/code-server/extensions/cs50.vsix/python-clients/cs50vsix-client /tmp/cs50vsix-client
 
+# Install the cs50vsix-client package
+WORKDIR /tmp/cs50vsix-client
+RUN pip3 install .
 
-
-# Install cs50vsix-client Python package
-RUN pip3 install /tmp/cs50vsix-client
 
 # Copy the startup script into the image
 COPY vnc_startup.sh /dockerstartup/
