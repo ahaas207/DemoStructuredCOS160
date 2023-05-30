@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     x11-utils \
     x11-xserver-utils \
+    npm \
     && rm -rf /var/lib/apt/lists/*
 
 # Install websockify using pip
@@ -31,20 +32,24 @@ RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.zip -P /tmp && 
 RUN mkdir -p /usr/share/code-server/extensions/cs50.vsix
 
 # Install VS Code extension
-RUN mkdir /tmp/cs50-extension && \
+RUN npm install -g vsce yarn && \
+    mkdir -p /tmp/cs50-extension && \
     cd /tmp/cs50-extension && \
-    wget https://github.com/cs50/cs50.vsix/archive/refs/heads/main.zip && \
-    unzip main.zip && \
-    mv cs50.vsix-main /usr/share/code-server/extensions/cs50.vsix
-
-# Copy cs50vsix-client from extension directory to temporary location
-#RUN mkdir -p /tmp/cs50vsix-client && \
-    #cp -r /usr/share/code-server/extensions/cs50.vsix/python-clients/cs50vsix-client /tmp/cs50vsix-client
+    git clone https://github.com/cs50/cs50.vsix.git && \
+    cd cs50.vsix && \
+    npm install && \
+    vsce package && \
+    mv cs50-0.0.1.vsix /usr/share/code-server/extensions/cs50.vsix
 
 # Install the cs50vsix-client package
-#WORKDIR /tmp/cs50vsix-client
-#RUN pip3 install .
+RUN mkdir -p /tmp/cs50vsix-client && \
+    cp -r /usr/share/code-server/extensions/cs50.vsix/cs50.vsix-main/python-clients/cs50vsix-client /tmp/cs50vsix-client && \
+    cd /tmp/cs50vsix-client && \
+    pip3 install . && \
+    rm -rf /tmp/cs50vsix-client
 
+# Remove unnecessary files
+RUN rm -rf /tmp/cs50-extension
 
 # Copy the startup script into the image
 COPY vnc_startup.sh /dockerstartup/
@@ -57,3 +62,4 @@ EXPOSE 5901 6901
 
 # Run the xvfb startup script when the container starts
 ENTRYPOINT ["/bin/bash", "-c", "./dockerstartup/xvfb.sh; tail -f /dev/null"]
+
