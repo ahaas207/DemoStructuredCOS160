@@ -15,10 +15,7 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     x11-utils \
     x11-xserver-utils \
-    npm \
     && rm -rf /var/lib/apt/lists/*
-    
-RUN chown -R 65534:0 /root/.npm
 
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
