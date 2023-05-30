@@ -39,7 +39,7 @@ RUN mkdir -p /tmp/cs50-extension && \
 
 # Copy cs50vsix-client from extension directory to temporary location
 RUN mkdir -p /tmp/cs50vsix-client && \
-    cp -r /usr/share/code-server/extensions/cs50.vsix/python-clients/cs50vsix-client /tmp/cs50vsix-client
+    cp -r /usr/share/code-server/extensions/cs50.vsix-main/python-clients/cs50vsix-client /tmp/cs50vsix-client
 
 # Install cs50vsix-client Python package
 RUN pip3 install /tmp/cs50vsix-client
