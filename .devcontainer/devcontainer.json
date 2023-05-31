@@ -1,7 +1,7 @@
 {
   "name": "Java with GUI",
   "dockerFile": "Dockerfile",
-  "forwardPorts": [5901, 6901],
+  "forwardPorts": [5900, 6081],
   "remoteUser": "root",
   "customizations": {
     "vscode": {
