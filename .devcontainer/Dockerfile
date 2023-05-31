@@ -41,7 +41,7 @@ RUN npm install -g vsce yarn && \
     git clone https://github.com/cs50/cs50.vsix.git && \
     cd cs50.vsix && \
     npm install && \
-    vsce package && \
+    ./node_modules/vsce/vsce package && \
     mv cs50-0.0.1.vsix /usr/share/code-server/extensions/cs50.vsix
 
 # Install the cs50vsix-client package
