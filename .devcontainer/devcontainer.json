@@ -7,7 +7,7 @@
     "vscode": {
       "extensions": [
         "vscjava.vscode-java-pack",
-        "/usr/share/code-server/extensions/cs50.vsix"
+        "/opt/cs50/extensions/cs50-0.0.1.vsix"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "{your-terminal-profile-name}"
