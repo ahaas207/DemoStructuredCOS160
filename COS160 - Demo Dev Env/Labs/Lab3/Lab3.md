@@ -1,5 +1,3 @@
-COS 170 : Lab 3 Graphics    
-
 COS 170 : Lab 3 - Graphics  
 
 =============================
@@ -10,10 +8,10 @@ In this lab you will work with a few of the basic graphics programming methods o
 
 Preparation  
 
-  
-
-*   Set up a new eclipse project for each lab [(detailed instructions)](http://www.cs.usm.maine.edu/%7Emacleod/courses/cos160/Fall2020Labs/StartingANewLabProject.html)
-*   Copy the files [DrawingPanel.java](http://www.cs.usm.maine.edu/%7Eboothe/cos160/DrawingPanel.java), [BoxGuy.java](https://www.cs.usm.maine.edu/~boothe/cos160/labs/Lab3_files/BoxGuy.java) into your lab3 project folder.  To copy files, right click on the link and save the file to the desktop. After saving to the desktop you can drag it into the lab3 project. Alternatively, just clicking on the link, highlighting the entire text and copying the program (Ctrl-c or command-c on Macs).  Then just paste it into your lab3 project by right clicking on the lab3 project and pasting (Ctrl-v or command-v on Macs)   (If the word "snippet" arises at any time, you did it wrong ... delete that and try again)
+*   You will see an option to update the cs50 extension, deny, if you accept it will require a rebuild of the container. 
+*   Select the Lab3.md tab and drag to right hand side of the screen so you can see the instructions side by side with the lab. 
+*   Run BoxGuy.java (select tab and click drop down option next to the the arrow on top right of tab), select 'Run Java' you will see a notification "Run/Debug feature requires Java language server to run in Standard mode. Do you want to switch it to Standard mode now?" select "Yes". 
+*   On left hand side of the VSCode editor in the explorer section, you will see a icon that says CS50, click then choose "GUI". This will open up another tab in your browser and display the output. You can leave this tab open. It will automatically update each time you 'Run Java' for the BoxGuy.java file. 
 
   
 
@@ -21,7 +19,7 @@ Exercise 1: (4 points)
 
 > ![](https://www.cs.usm.maine.edu/~boothe/cos160/labs/Lab3_files/BoxGuy1.PNG)
 
-Run the BoxGuy program to make sure it works. This program illustrates a few of the functions available in the Graphics2D class. Programs using the Drawing Panel stay running until you close the pop up Drawing Panel window, so try to remember to close the Drawing Panel each time before running your program again.  It will get confusing if you leave several versions of your program running. Basic documentation about the DrawingPanel and Graphics2D class can be found at: [http://www.cs.usm.maine.edu/~boothe/cos160/UsingJavaGraphics.pdf](http://www.cs.usm.maine.edu/%7Eboothe/cos160/UsingJavaGraphics.pdf) and Comprehensive documentation about Graphics2D can be found at : [https://docs.oracle.com/javase/7/docs/api/index.html?java/awt/Graphics2D.html](https://docs.oracle.com/javase/7/docs/api/index.html?java/awt/Graphics2D.html)
+This program illustrates a few of the functions available in the Graphics2D class. Basic documentation about the DrawingPanel and Graphics2D class can be found at: [http://www.cs.usm.maine.edu/~boothe/cos160/UsingJavaGraphics.pdf](http://www.cs.usm.maine.edu/%7Eboothe/cos160/UsingJavaGraphics.pdf) and Comprehensive documentation about Graphics2D can be found at : [https://docs.oracle.com/javase/7/docs/api/index.html?java/awt/Graphics2D.html](https://docs.oracle.com/javase/7/docs/api/index.html?java/awt/Graphics2D.html)
 
 Look over the BoxGuy program and make sure you understand it. You are going to be making a few small changes. Below are the changes that you need to make. Make each change one at a time and test it and make sure you understand it before moving on.  
 
