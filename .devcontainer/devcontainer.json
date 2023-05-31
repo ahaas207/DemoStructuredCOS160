@@ -11,6 +11,9 @@
 		"MS-vsliveshare.vsliveshare"
 	],
       "settings": {
+	"git.autofetch": true,
+        "github.codespaces.devcontainerChangedNotificationStyle": "none",
+        "java.server.launchMode": "Standard",
         "terminal.integrated.defaultProfile.linux": "{your-terminal-profile-name}",
         "workbench.editorAssociations": {   
           "*.md": "vscode.markdown.preview.editor",
