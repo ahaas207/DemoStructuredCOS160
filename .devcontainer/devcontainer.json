@@ -13,8 +13,7 @@
         "terminal.integrated.defaultProfile.linux": "{your-terminal-profile-name}"
       }
     }
-  },
-  "postCreateCommand": "/dockerstartup/vnc_startup.sh"
+  }
 }
 
 
