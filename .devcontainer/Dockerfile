@@ -44,8 +44,7 @@ RUN npm install -g vsce yarn && \
     vsce package && \
     mv cs50-0.0.1.vsix /opt/cs50/extensions && \
     pip3 install ./python-clients/cs50vsix-client/ && \
-    rm -rf /tmp/cs50.vsix && \
-    npm uninstall -g yarn
+    rm -rf /tmp/cs50.vsix
     
 # Copy the startup script into the image
 COPY vnc_startup.sh /dockerstartup/
