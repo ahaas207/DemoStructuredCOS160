@@ -8,10 +8,11 @@ In this lab you will work with a few of the basic graphics programming methods o
 
 Preparation  
 
-*   You will see an option to update the cs50 extension, deny, if you accept it will require a rebuild of the container. 
+*   You might see an option to update the cs50 extension, select 'Remind Me Later', if you select Update it will require a rebuild of the container. 
 *   Select the Lab3.md tab and drag to right hand side of the screen so you can see the instructions side by side with the lab. 
-*   Run BoxGuy.java (select tab and click drop down option next to the the arrow on top right of tab), select 'Run Java' you will see a notification "Run/Debug feature requires Java language server to run in Standard mode. Do you want to switch it to Standard mode now?" select "Yes". 
-*   On left hand side of the VSCode editor in the explorer section, you will see a icon that says CS50, click then choose "GUI". This will open up another tab in your browser and display the output. You can leave this tab open. If you make changes to the file, click on the red square on top right of tab to stop running the program and 'Run Java' again. This will automtically update the display in the other browser tab. 
+*   Run BoxGuy.java (select tab and click drop down option next to the the arrow on top right of tab), select 'Run Java'.
+*   On left hand side of the VSCode editor in the explorer section, you will see a icon that says CS50, click then choose "GUI". This will open up another tab in your browser and display the output. 
+*   You can leave this tab open. If you make changes to the file, click on the red square on top right of tab to stop running the program and 'Run Java' again. This will automtically update the display in the other browser tab. 
 
   
 
