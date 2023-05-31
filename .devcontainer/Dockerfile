@@ -31,29 +31,19 @@ RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.zip -P /tmp && 
     rm -rf /tmp/noVNC-1.4.0 /tmp/v1.4.0.zip && \
     chown -R root:root /opt/noVNC
 
-# Create the destination directory for the VS Code extension
-RUN mkdir -p /usr/share/code-server/extensions/cs50.vsix
-
 # Install VS Code extension
 RUN npm install -g vsce yarn && \
-    mkdir -p /tmp/cs50-extension && \
-    cd /tmp/cs50-extension && \
+    mkdir --parents /opt/cs50/extensions && \
+    cd /tmp && \
     git clone https://github.com/cs50/cs50.vsix.git && \
     cd cs50.vsix && \
     npm install && \
-    ./node_modules/vsce/vsce package && \
-    mv cs50-0.0.1.vsix /usr/share/code-server/extensions/cs50.vsix
-
-# Install the cs50vsix-client package
-RUN mkdir -p /tmp/cs50vsix-client && \
-    cp -r /usr/share/code-server/extensions/cs50.vsix/cs50.vsix-main/python-clients/cs50vsix-client /tmp/cs50vsix-client && \
-    cd /tmp/cs50vsix-client && \
-    pip3 install . && \
-    rm -rf /tmp/cs50vsix-client
-
-# Remove unnecessary files
-RUN rm -rf /tmp/cs50-extension
-
+    vsce package && \
+    mv cs50-0.0.1.vsix /opt/cs50/extensions && \
+    pip3 install ./python-clients/cs50vsix-client/ && \
+    rm -rf /tmp/cs50.vsix && \
+    npm uninstall -g yarn
+    
 # Copy the startup script into the image
 COPY vnc_startup.sh /dockerstartup/
 
@@ -64,5 +54,4 @@ RUN chmod +x /dockerstartup/vnc_startup.sh
 EXPOSE 5901 6901
 
 # Run the xvfb startup script when the container starts
-ENTRYPOINT ["/bin/bash", "-c", "./dockerstartup/xvfb.sh; tail -f /dev/null"]
-
+ENTRYPOINT ["/bin/bash", "-c", "./dockerstartup/vnc_startup.sh; tail -f /dev/null"]
