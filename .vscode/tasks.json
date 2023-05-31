@@ -2,9 +2,19 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Open files",
+            "label": "Open Lab 3 file",
             "type": "shell",
-            "command": "code \"COS160 - Demo Dev Env/Labs/Lab3/BoxGuy.java\" && echo 'Opening Java file' && code --command markdown50.openPreviewToTheSide \"COS160 - Demo Dev Env/Labs/Lab3/Lab3.MD\" && echo 'Opening Markdown preview'",
+            "command": "code \"COS160 - Demo Dev Env/Labs/Lab3/BoxGuy.java\"",
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "isBackground": false,
+            "problemMatcher": []
+        },
+        {
+            "label": "Open Markdown preview",
+            "type": "shell",
+            "command": "code \"COS160 - Demo Dev Env/Labs/Lab3/Lab3.MD\"",
             "runOptions": {
                 "runOn": "folderOpen"
             },
@@ -13,3 +23,4 @@
         }
     ]
 }
+

@@ -6,17 +6,24 @@
   "customizations": {
     "vscode": {
       "extensions": [
-		"vscjava.vscode-java-pack",
-		"/opt/cs50/extensions/cs50-0.0.1.vsix",
-		"MS-vsliveshare.vsliveshare",
-		"CS50.markdown50"
-	],
+        "vscjava.vscode-java-pack",
+        "/opt/cs50/extensions/cs50-0.0.1.vsix",
+        "MS-vsliveshare.vsliveshare"
+      ],
       "settings": {
-        "terminal.integrated.defaultProfile.linux": "{your-terminal-profile-name}"
+        "terminal.integrated.defaultProfile.linux": "{your-terminal-profile-name}",
+        "workbench.editorAssociations": [
+            {
+                "viewType": "vscode.markdown.preview.editor",
+                "filenamePattern": "*.md"
+            }
+        ]
       }
     }
-  }
+  },
+  "postCreateCommand": "/dockerstartup/vnc_startup.sh"
 }
+
 
 
 
