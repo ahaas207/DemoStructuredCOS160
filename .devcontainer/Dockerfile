@@ -53,7 +53,7 @@ COPY vnc_startup.sh /dockerstartup/
 RUN chmod +x /dockerstartup/vnc_startup.sh
 
 # Expose the necessary ports
-EXPOSE 5901 6901
+EXPOSE 5900 6081
 
 # Run the xvfb startup script when the container starts
 ENTRYPOINT ["/bin/bash", "-c", "./dockerstartup/vnc_startup.sh; tail -f /dev/null"]
