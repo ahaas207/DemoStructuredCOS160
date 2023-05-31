@@ -8,7 +8,8 @@
       "extensions": [
         "vscjava.vscode-java-pack",
         "/opt/cs50/extensions/cs50-0.0.1.vsix",
-        "MS-vsliveshare.vsliveshare"
+        "MS-vsliveshare.vsliveshare",
+        "lostintangent.workspace-layout"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "{your-terminal-profile-name}",
@@ -19,8 +20,16 @@
       }
     }
   },
-  "postCreateCommand": "/dockerstartup/vnc_startup.sh"
+  "workspace": {
+    "files": [
+      "COS160 - Demo Dev Env/Labs/Lab3/BoxGuy.java",
+      ["COS160 - Demo Dev Env/Labs/Lab3/Lab3.MD"]
+    ]
+  },
+  "postCreateCommand": "/dockerstartup/vnc_startup.sh",
+  "postAttachCommand": "/dockerstartup/vnc_startup.sh"
 }
+
 
 
 
