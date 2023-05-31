@@ -6,9 +6,11 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "vscjava.vscode-java-pack",
-        "/opt/cs50/extensions/cs50-0.0.1.vsix"
-      ],
+		"vscjava.vscode-java-pack",
+		"/opt/cs50/extensions/cs50-0.0.1.vsix",
+		"MS-vsliveshare.vsliveshare",
+		"CS50.markdown50"
+	],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "{your-terminal-profile-name}"
       }

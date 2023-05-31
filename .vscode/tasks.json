@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Open files",
+            "type": "shell",
+            "command": "code \"COS160 - Demo Dev Env/Labs/Lab3/BoxGuy.java\" && echo 'Opening Java file' && code --command markdown50.openPreviewToTheSide \"COS160 - Demo Dev Env/Labs/Lab3/Lab3.MD\" && echo 'Opening Markdown preview'",
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "isBackground": false,
+            "problemMatcher": []
+        }
+    ]
+}
