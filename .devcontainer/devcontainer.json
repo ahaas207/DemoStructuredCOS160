@@ -21,12 +21,6 @@
       }
     }
   },
-  "workspace": {
-    "files": [
-      ["COS160 - Demo Dev Env/Labs/Lab3/BoxGuy.java"],
-      "COS160 - Demo Dev Env/Labs/Lab3/Lab3.md"
-    ]
-  },
   "postCreateCommand": "/dockerstartup/vnc_startup.sh",
   "postAttachCommand": "/dockerstartup/vnc_startup.sh"
 }
