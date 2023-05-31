@@ -15,7 +15,7 @@ Preparation
 *   Set up a new eclipse project for each lab [(detailed instructions)](http://www.cs.usm.maine.edu/%7Emacleod/courses/cos160/Fall2020Labs/StartingANewLabProject.html)  
     
 
-*   Copy the files [DrawingPanel.java](http://www.cs.usm.maine.edu/%7Eboothe/cos160/DrawingPanel.java), [DrawLoop.java](Lab4_files/DrawLoop.java?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R) and [IfGrid.java](Lab4_files/IfGrid.java?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  into your lab4 project folder. (One simple way to do this is to save the links to desktop, and then drag the desktop icons into the Eclipse project).
+*   Copy the files [DrawingPanel.java](http://www.cs.usm.maine.edu/%7Eboothe/cos160/DrawingPanel.java), [DrawLoop.java](https://www.cs.usm.maine.edu/~boothe/cos160/labs/Lab4_files/DrawLoop.java?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R) and [IfGrid.java](https://www.cs.usm.maine.edu/~boothe/cos160/labs/Lab4_files/IfGrid.java?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  into your lab4 project folder. (One simple way to do this is to save the links to desktop, and then drag the desktop icons into the Eclipse project).
 
   
 
@@ -42,7 +42,7 @@ This loop will repeat 8 times. The value of the variable i is 0 the first time, 
 
 You are going to be making a series of small changes.  When you are done it should look like this:  
    
-![](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/DrawLoop2Soln.png?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)
+![](https://www.cs.usm.maine.edu/~boothe/cos160/labs/Lab4_files/DrawLoop2Soln.png?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)
 
 Below are the changes that you need to make. Make each change one at a time and test it and make sure you understand it before moving on.  
 
@@ -89,7 +89,7 @@ Exercise 2: (2 points)
 
 The rest of the exercises will use the program IfGrid.java to experiment with conditional expressions used in if statements.  Run the program to make sure it works.  It should produce the drawing panel shown below.
 
-![](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/IfGridx4.png?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
+![](https://www.cs.usm.maine.edu/~boothe/cos160/labs/Lab4_files/IfGridx4.png?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
 
 Examine the code to see how it works. It is very similar to your program from the previous exercise. The main difference is that there are two loops with the second loop nested inside the first one. The behavior of these nested loops is to create all combinations of x & y, with  
           0 <= x <= 9  
@@ -110,7 +110,7 @@ Currently the program sets the color to green for each rectangle that has an x v
 
 Change the expression in the if statement so that the right half of the rectangles (those with x >= 5) are colored green :  
 
-> ![X greater than 4](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/xGreaterThan4.png?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)
+> ![X greater than 4](https://www.cs.usm.maine.edu/~boothe/cos160/labs/Lab4_files/xGreaterThan4.png?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)
 
 Copy your modified if statement into your solutions document.  You don't need to copy any more pictures for this lab.  
 
@@ -118,7 +118,7 @@ Exercise 3: (1 point)
 
 Change the expression in the if statement to make the diagonal green.  Note the relationship between x and y for the green squares.  
 
-![](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/IfGridDiagonal.png?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
+![](https://www.cs.usm.maine.edu/~boothe/cos160/labs/Lab4_files/IfGridDiagonal.png?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
 
 Copy your modified if statement into your solutions document.  
 
@@ -128,7 +128,7 @@ Exercise 4: (1 point)
 
 Change the expression in the if statement to make the lower left triangle green.  Note the relationship between x and y for the green squares.  
 
-![Lower left](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/LowerLeft.PNG?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
+![Lower left](https://www.cs.usm.maine.edu/~boothe/cos160/labs/Lab4_files/LowerLeft.PNG?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
 
 Copy your modified if statement into your solutions document.
 
@@ -136,7 +136,7 @@ Exercise 5: (1 point)
 
 A little bit trickier.  Change the expression in the if statement to make the upper left triangle green.  Hint look at the sum x + y for the green squares.  
 
-![upper left](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/UpperLeft.PNG?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
+![upper left](https://www.cs.usm.maine.edu/~boothe/cos160/labs/Lab4_files/UpperLeft.PNG?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
 
 Copy your modified if statement into your solutions document.
 
@@ -144,7 +144,7 @@ Exercise 6: (1 point)
 
 Another one.  Hint look at the sums of x + y for the green squares versus the yellow squares.
 
-![checkerboard](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/Checker.PNG?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
+![checkerboard](https://www.cs.usm.maine.edu/~boothe/cos160/labs/Lab4_files/Checker.PNG?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)  
 
 Copy your modified if statement into your solutions document.
 
