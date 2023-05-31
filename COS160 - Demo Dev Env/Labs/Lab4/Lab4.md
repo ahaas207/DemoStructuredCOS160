@@ -163,4 +163,4 @@ Extras - If you are done early, here are some extra things to try.  You don't n
   
   
 
-![Border Star](https://courses.maine.edu/content/enforced/139829-2120.UMS06-S.62273.1/Labs/Lab4_files/BorderStar.PNG?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)
+![Border Star](https://www.cs.usm.maine.edu/~boothe/cos160/labs/Lab4_files/BorderStar.PNG?_&d2lSessionVal=p95kN3dMAKRuVoCxs0U68Zf6R)
