@@ -6,11 +6,12 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "vscjava.vscode-java-pack",
-        "/opt/cs50/extensions/cs50-0.0.1.vsix",
-        "MS-vsliveshare.vsliveshare",
-        "lostintangent.workspace-layout"
-      ],
+		"vscjava.vscode-java-pack",
+		"/opt/cs50/extensions/cs50-0.0.1.vsix",
+		"MS-vsliveshare.vsliveshare",
+		"lostintangent.workspace-layout",
+		"hnw.vscode-auto-open-markdown-preview"
+	],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "{your-terminal-profile-name}",
         "workbench.editorAssociations": {   
