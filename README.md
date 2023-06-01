@@ -8,7 +8,7 @@ To get started with this demo, follow these steps:
 
 1. **Create a Repository**: Click on the "Use this template" button at the top of the repository page to create a new repository based on this template. Provide a name for your repository and click on "Create repository from template".
 
-2. **Open Codespaces**: Once your repository is created, navigate to the repository's main page. Click on the "Code" button and select "Open with Codespaces" to launch the Codespaces web-based development environment.
+2. **Open Codespaces**: Once your repository is created, navigate to the repository's main page. Click on the "Code" button and select "Create Codespace on Main" to launch the Codespaces web-based development environment.
 
 3. **Access the Codespace**: Codespaces will set up the development environment based on the configurations specified in the repository. Once the setup is complete, you will be automatically connected to the Codespace.
 
