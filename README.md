@@ -2,6 +2,8 @@
 
 Welcome to the DemoStructuredCOS160 repository! This repository contains the code and files for the demonstration of a structured approach to COS160.
 
+## Make sure you're signed up for GitHub. If you are a student, make sure to sign up using your Maine.edu email (extra free hours of Codespaces). 
+
 ## Getting Started
 
 To get started with this demo, follow these steps:
