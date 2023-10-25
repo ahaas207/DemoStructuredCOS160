@@ -1,5 +1,5 @@
 # DemoStructuredCOS160
-# A Configuration-as-code introductory development environment. 
+# Configuration-as-code introductory development environment. 
 
 This repository demonstrates a configuration-as-code approach for an introductory computer science student's development environment (this example uses real course activity and homework material from the intro course at the University of Southern Maine). 
 
